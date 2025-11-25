@@ -145,7 +145,7 @@ body {
 ------------------------------------------------------- */
 .site-header {
     width: 100%;
-    max-width: 1350px;
+    max-width: 1360px;
     margin: 35px auto 0 auto;
     background: rgba(255, 221, 182, 0.664);
     backdrop-filter: blur(12px);
@@ -1316,4 +1316,5 @@ html {
     flex: 1;
   }
 }
+
 
