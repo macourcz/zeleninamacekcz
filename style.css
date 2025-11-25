@@ -1,0 +1,1181 @@
+/* Reset a základ */
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    height: 100%;
+    font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; 
+    color: #222;
+}
+body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+/* Hero sekce */
+.hero {
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    text-align: center;
+}
+
+
+/* Obsah uvnitř hero */
+.hero-inner {
+    position: relative;
+    z-index: 2;
+    max-width: 900px;
+}
+
+.hero-inner h2 {
+    font-size: 5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+    text-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    font-family: "Poppins", sans-serif;
+}
+
+.highlight {
+  color: #e08649; /* červená barva */
+  font-weight: 600; /* volitelné, zvýraznění tučně */
+}
+
+.hero-inner p {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #ffffff;
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
+    text-shadow: 0 2px 6px rgba(0,0,0,0.3);
+    font-family: "Poppins", sans-serif;
+}
+
+.hero-inner .btn {
+    display: inline-block;
+    background: #2f3e46;
+    color: #fff;
+    padding: 1.2rem 4rem;
+    border-radius: 50px;
+    font-weight: 700;
+    text-decoration:none;
+    transition: 0.3s;
+}
+
+.hero-inner .btn:hover {
+    background: #caa603;
+    transform: translateY(-3px);
+}
+
+/* Sekce O nás */
+.about-section {
+    width: 100%;
+    padding: 120px 0;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+/* PŮLKRUH VLEVO */
+.about-circle {
+    width: 680px;
+    height: 680px;
+    background: rgba(194, 191, 145, 0.514);
+    backdrop-filter: blur(14px);
+    border-radius: 0 50% 50% 0;
+    position: absolute;
+    left: 0;
+    top: 70%;
+    transform: translateY(-50%);
+    padding: 60px 60px 60px 80px;
+    box-shadow: 20px 0 40px rgba(0,0,0,0.18);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: left;
+    animation: slideIn 0.8s ease forwards;
+}
+
+.about-title {
+    font-size: 43px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #1d1d1d;
+}
+
+.about-text {
+    font-style: italic;
+    font-size: 20px;
+    color: #141414;
+    line-height: 1.6;
+    font-weight: 500;
+}
+
+/* Animace */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translate(-80px, -50%);
+    }
+    to {
+        opacity: 1;
+        transform: translate(0, -50%);
+    }
+}
+
+/* Container */
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+/* -------------------------------------------------------
+   FLOATING HEADER → STICKY HEADER (OPRAVENO)
+------------------------------------------------------- */
+.site-header {
+    width: 100%;
+    max-width: 1350px;
+    margin: 35px auto 0 auto;
+    background: rgba(255, 221, 182, 0.664);
+    backdrop-filter: blur(12px);
+    border-radius: 22px;
+    box-shadow: 0 8px 35px rgba(0,0,0,0.12);
+    position: relative;
+    z-index: 1000;
+  
+    transition:
+    background 0.35s ease,
+    border-radius 0.35s ease,
+    box-shadow 0.35s ease,
+    transform 0.45s cubic-bezier(.25, .9, .25, 1),
+    width 0.35s ease;
+}
+
+.header-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1.4rem 2.2rem;
+    transition: padding 0.35s ease;
+}
+
+.brand img.logo {
+    height: 48px;
+    transition: height 0.35s ease;
+}
+
+.top-nav {
+  position: relative;
+  display: flex;
+  gap: 30px;
+}
+
+.top-nav a {
+  text-decoration: none;
+  color: #333;
+  padding: 5px 0;
+  position: relative;
+}
+
+.top-nav .underline {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  width: 0;
+  background-color: #c0300c; /* barva podtržení */
+  transition: left 0.3s ease, width 0.3s ease;
+}
+
+
+.contact-info strong {
+    display: block;
+    font-weight: 700;
+    color: #d40000;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+/* -------------------------------------------------------
+   STICKY MODE AFTER SCROLL (FIX)
+------------------------------------------------------- */
+.site-header.sticky {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    right: auto;
+    transform: translate(-50%, -22px);
+    width: 100%;
+    max-width: 1920px;
+    margin: 0;
+    border-radius: 0;
+    background: #2f3e46;
+    box-shadow: 0 6px 30px rgba(0,0,0,0.12);
+}
+
+/* Texty v headeru běžně */
+.site-header .top-nav a,
+.site-header .contact-info,
+.site-header .brand img.logo {
+  color: #2f3e46; font-weight: bold; /* tmavě text */
+  transition: color 0.35s ease; /* plynulá změna */
+}
+
+/* Když je header sticky */
+.site-header.sticky .top-nav a,
+.site-header.sticky .contact-info {
+  color: #ffffff; /* červená při scrollu */
+}
+
+/* Logo - můžeš třeba invertovat barvy, pokud máš světlé pozadí */
+.site-header.sticky .brand img.logo {
+  filter: brightness(0.9); /* nebo brightness/invert pro efekt */
+}
+
+
+.site-header.sticky.animate-down {
+    transform: translate(-50%, 0);
+}
+
+.site-header.sticky .header-inner {
+    padding: 0.8rem 1.6rem;
+}
+
+.site-header.sticky .brand img.logo {
+    height: 70px;
+}
+
+//* ------------------------------ */
+/* DESKTOP (default)              */
+/* ------------------------------ */
+body {
+    font-size: 18px;
+}
+
+/* Můžeš tady mít normální velké karty, grid 3 sloupce ... */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+/* ------------------------------ */
+/* TABLET                         */
+/* ------------------------------ */
+@media (max-width: 992px) {
+    .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    header {
+        height: auto;
+        padding: 10px 20px;
+    }
+    .hero h2 {
+      font-size: 2.2rem;
+    }
+    .hero p {
+      font-size: 1.1rem;
+    }
+    .btn {
+      padding: 14px 30px;
+      font-size: 1rem;
+    }
+    .divider {
+      width: 60px;
+      height: 3px;
+    }
+    .about-circle {
+      padding: 45px 35px;
+      width: 400px;
+      height: 300px;
+      overflow: hidden;
+    }
+    .about-title {
+      font-size: 1.7rem;
+    }
+    .about-text {
+      font-size: 1rem;
+      text-align: left;
+      font-weight: bold;
+      word-wrap: break-word;
+    }
+    body {
+        margin: 0;
+        background-image: url('images/view-fruits-vegetables.jpg');
+        background-size: 400%;       /* vyplní celou stránku */
+        background-position: center;  /* vycentruje */
+        background-repeat: no-repeat; /* nebude se opakovat */
+    }
+    body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-size: cover;
+    background-position: center;
+  }
+
+  .site-footer {
+    margin-top: auto;               /* footer se přilepí dolů */
+    position: relative;
+    z-index: 5;                     /* překryje pozadí */
+    background: #fffffffa;          /* mírně krycí pozadí (možno zesílit) */
+    backdrop-filter: blur(5px);     /* volitelné – vypadá to luxusně */
+  }
+
+  .wave-divider {
+    display: none;                  /* u tabletů raději vypnout vlnku, kazí layout */
+  }
+  }
+
+
+/* ------------------------------ */
+/* MOBIL                          */
+/* ------------------------------ */
+@media (max-width: 600px) {
+    body {
+        font-size: 16px;
+    }
+
+    .product-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .card {
+        width: 100%;
+        padding: 12px;
+        border-radius: 14px;
+    }
+
+    img.logo {
+        width: 120px;
+    }
+
+    .btn {
+        width: 100%;
+        text-align: center;
+    }
+    .hero h2 {
+      font-size: 1.8rem;
+    }
+    .hero p {
+      font-size: 1rem;
+    }
+    .hero-inner {
+      padding: 15px 20px;
+    }
+    .btn {
+      padding: 12px 25px;
+      font-size: 0.95rem;
+    }
+    .divider {
+      width: 50px;
+      height: 3px;
+    }
+    .about-circle {
+      padding: 20px 10px;
+    }
+    .about-title {
+      font-size: 1.8rem;
+    }
+    .about-text {
+      font-size: 0.65rem;
+    }
+    .map-overlay {
+    bottom: 10px;
+    padding: 0.5rem 1rem;
+    font-size: 0.8rem;
+  }
+  .form-section {
+    max-width: 95%;
+    margin: 30px auto;
+    padding: 25px 20px;
+    border-radius: 18px;
+  }
+
+  .form-section h2 {
+    font-size: 24px;
+  }
+
+  .form-desc {
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
+
+  .nice-form input,
+  .nice-form textarea {
+    padding: 10px 12px;
+    font-size: 14px;
+  }
+
+  .gdpr input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+  }
+
+  .form-section::before,
+  .form-section::after {
+    height: 120px; /* menší ornamenty */
+    left: -10%;
+    width: 120%;
+  }
+
+  .form-section::before {
+    top: -35px;
+  }
+
+  .form-section::after {
+    bottom: -35px;
+  }
+   .nice-form button {
+    width: 100%;        /* tlačítko zabere celou šířku formuláře */
+    padding: 12px 0;    /* snížíme vertikální padding */
+    font-size: 16px;    /* případně zmenšit text, pokud je potřeba */
+  }
+  .products-page p {
+    font-weight: bold;
+}
+body {
+        margin: 0;
+        background-image: url('images/view-fruits-vegetables.jpg');
+        background-size: cover;       /* vyplní celou stránku */
+        
+        
+    }
+    body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-size: cover;
+    background-position: center;
+  }
+
+  .site-footer {
+    margin-top: auto;               /* footer se přilepí dolů */
+    position: relative;
+    z-index: 5;                     /* překryje pozadí */
+    background: #fffffffa;          /* mírně krycí pozadí (možno zesílit) */
+    backdrop-filter: blur(5px);     /* volitelné – vypadá to luxusně */
+  }
+
+  .wave-divider {
+    display: none;                  /* u tabletů raději vypnout vlnku, kazí layout */
+  }
+
+}
+
+
+/* Kontakt (zbytek zachován) */
+.contact-info {
+    text-align: right;
+    font-size: 0.9rem;
+    color: #b80404;
+}
+
+.brand img.logo {
+  height: 70px;
+  object-fit: contain;
+}
+
+/* Sections */
+.section{padding:2rem 0;border-bottom:1px solid #ffffff}
+.cards .card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem}
+.card{background:#004136;padding:1rem;border-radius:10px;box-shadow:0 6px 18px rgba(0,0,0,0.06)}
+
+.map-section {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  text-align: center;
+  font-family: 'Inter', sans-serif;
+  font-weight: bold;
+  font-size: 1.4rem;
+  color: #222222;
+}
+
+.map-wrapper {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.map-wrapper:hover {
+  transform: scale(1.02);
+  box-shadow: 0 18px 45px rgba(0,0,0,0.25);
+}
+
+.map-wrapper iframe {
+  border: none;
+  border-radius: 20px;
+  display: block;
+}
+
+/* Overlay text na mapě */
+.map-overlay {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(255,255,255,0.85);
+  backdrop-filter: blur(5px);
+  padding: 0.8rem 1.5rem;
+  border-radius: 12px;
+  font-weight: 600;
+  color: #004136;
+  font-size: 1rem;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  transition: background 0.3s ease;
+}
+
+.map-wrapper:hover .map-overlay {
+  background: rgba(214, 40, 40, 0.85);
+  color: #fff;
+}
+
+
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;align-items:start}
+.contact-info p{margin:.25rem 0}
+.form label{display:block;margin-bottom:.75rem;font-size:.95rem}
+.form input[type="text"], .form input[type="email"]{
+  width:100%;padding:.6rem;border-radius:8px;border:1px solid #ddd
+}
+.form .btn{margin-top:.5rem}
+.form-note{font-size:.85rem;color:#666;margin-top:.5rem}
+.form-message{margin-top:.8rem;color:#0b7a3a;font-weight:600}
+
+.site-footer{background:#f8f8f8;padding:1rem;text-align:center;color:#666;font-size:.9rem}
+
+@media(max-width:800px){
+  .header-inner{flex-direction:column;align-items:flex-start}
+  .contact-grid{grid-template-columns:1fr}
+  .top-nav{display:flex;gap:.5rem;margin-top:.5rem}
+  .hero-inner{padding:0 0.5rem}
+}
+
+/* … zbytek zachován, přesně jak jsi měl … */
+
+.top-nav a.active {
+  color: #c0300c;      /* nebo background-color */
+  font-weight: bold;    /* zvýraznění textu */
+  border-bottom: 2px solid #c0300c; /* nebo jiný efekt */
+}
+
+.contact-section {
+  margin-top: 60px;
+  text-align: center;
+}
+
+.contact-title {
+  font-size: 36px;
+  font-weight: bolder;
+  margin-bottom: 50px;
+  font-family: "Poppins", sans-serif;
+}
+
+.contact-card {
+  margin: 30px auto;
+  max-width: 500px;
+  font-weight: bolder;
+}
+
+.contact-card h3 {
+  font-size: 22px;
+  margin-bottom: 10px;
+  font-weight: bolder;
+}
+
+.contact-card p {
+  font-size: 16px;
+  color: #0e0e0e;
+  font-weight: bolder;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.contact-card h4 {
+  font-size: 16px;
+  margin-bottom: 10px;
+  font-weight: bolder;
+}
+.divider {
+  width: 60%;
+  height: 1px;
+  margin: 30px auto;
+  background: #ccc;
+}
+
+.form-title {
+  font-size: 28px;
+  margin-top: 50px;
+  margin-bottom: 20px;
+}
+
+.contact-form {
+  max-width: 500px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.contact-form label {
+  display: block;
+  margin-bottom: 20px;
+  font-size: 16px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #bbb;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+
+
+.btn {
+  display: inline-block;
+  padding: 12px 24px;
+  background: #2e7d32;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.map-container {
+  width: 100%;
+  height: 350px;
+  margin-top: 20px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+
+
+.site-footer {
+  background: #2f3e46;
+  color: #e5e5e5;
+  padding: 50px 0 20px;
+  margin-top: 80px;
+  font-size: 15px;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.footer-col {
+  flex: 1 1 250px;
+  margin-bottom: 25px;
+}
+
+.footer-col h4 {
+  font-size: 18px;
+  margin-bottom: 15px;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.footer-col p,
+.footer-col a {
+  color: #cccccc;
+  text-decoration: none;
+}
+
+.footer-col a:hover {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 15px;
+  border-top: 1px solid rgba(255,255,255,0.15);
+  margin-top: 30px;
+  color: #bbbbbb;
+  font-size: 14px;
+}
+
+/* Ornament background – jemná vlnka nahoře a dole */
+.form-section {
+  position: relative;
+  overflow: hidden;
+}
+
+.form-section::before,
+.form-section::after {
+  content: "";
+  position: absolute;
+  left: -20%;
+  width: 140%;
+  height: 160px;
+  background-size: contain;
+  opacity: 0.12;
+  pointer-events: none;
+}
+
+.form-section::before {
+  top: -55px;
+  transform: rotate(2deg);
+}
+
+.form-section::after {
+  bottom: -55px;
+  transform: rotate(180deg);
+}
+
+/* Sekce formuláře */
+.form-section {
+  max-width: 600px;
+  max-height: 920px;
+  margin: 60px auto;
+  padding: 50px 40px;
+  background: linear-gradient(145deg, #ffffff, #f3f1ff);
+  border-radius: 22px;
+  box-shadow: 0px 12px 35px rgba(0, 0, 0, 0.15);
+}
+
+/* Nadpis + popis */
+.form-section h2 {
+  text-align: center;
+  font-size: 32px;
+  margin-bottom: 6px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  color: #1a1a1a;
+  font-family: "Poppins", sans-serif;
+}
+
+.form-desc {
+  text-align: center;
+  color: #5a5a5a;
+  margin-bottom: 36px;
+  font-size: 17px;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Form */
+.nice-form {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  text-align: left;
+}
+
+.form-group label {
+  font-weight: 600;
+  color: #2d2d2d;
+  font-size: 16px;
+}
+
+/* Inputs */
+.nice-form input,
+.nice-form textarea {
+  width: 100%;
+  padding: 15px 18px;
+  border-radius: 14px;
+  border: 1px solid #d7d7d7;
+  font-size: 16px;
+  background: #fafafa;
+  transition: 0.25s ease;
+}
+
+.nice-form input:focus,
+.nice-form textarea:focus {
+  border-color: #367c3f;
+  background: #ffffff;
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(110, 70, 255, 0.18);
+}
+
+/* GDPR checkbox */
+.gdpr {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.gdpr input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  accent-color: #010201; /* moderní barva checkboxu */
+  cursor: pointer;
+}
+.product-card {
+    max-height: 120px;
+    transition: max-height 0.45s ease;
+}
+
+.product-card.expanded {
+    max-height: 500px;
+}
+
+.card-content {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease, opacity 0.4s ease;
+}
+
+.product-card.expanded .card-content {
+    max-height: 900px;
+    opacity: 1;
+}
+
+/* Tlačítko */
+.btn-send {
+  padding: 16px 22px;
+  background: linear-gradient(135deg, #5b8845, #6fd829);
+  color: #fff;
+  font-size: 19px;
+  font-weight: 600;
+  border: none;
+  border-radius: 16px;
+  cursor: pointer;
+  box-shadow: 0px 5px 18px rgba(62, 206, 43, 0.35);
+  transition: 0.25s ease;
+}
+
+.btn-send:hover {
+  transform: translateY(-3px);
+  box-shadow: 0px 7px 22px rgba(29, 160, 46, 0.45);
+}
+
+.btn-send:active {
+  transform: translateY(0px);
+}
+
+/* ===== FUTURE DESIGN PRODUKTŮ ===== */
+
+.products-page {
+    text-align: center;
+    padding: 60px 0;
+}
+
+.products-page h2 {
+    font-family: "Poppins", sans-serif;
+    font-size: 42px;
+    font-weight: 700;
+    letter-spacing: -1px;
+    margin-bottom: 10px;
+}
+
+.products-page p {
+    font-size: 17px;
+    color: #444;
+    max-width: 650px;
+    margin: 0 auto 50px auto;
+    line-height: 1.6;
+}
+
+/* GRID */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    position: relative;
+}
+
+.product-card {
+    backdrop-filter: blur(14px);
+    background: linear-gradient(
+        135deg,
+        rgba(255,255,255,0.3) 0%,
+        rgba(255,255,255,0.1) 100%
+    );
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 22px;
+    padding: 25px 25px;
+    color: #111;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.12);
+    text-align: center;
+    height: 30px !important;   /* pevná výška karty */
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-content {
+    flex: 1;               /* vyplní zbytek karty */
+    overflow-y: hidden;      /* scroll, pokud obsah přesahuje */
+    height: 100px !important;
+}
+
+/* Scrollbar styl */
+.card-content::-webkit-scrollbar {
+    width: 6px;
+}
+
+.card-content::-webkit-scrollbar-thumb {
+    background-color: rgba(0,0,0,0.2);
+    border-radius: 3px;
+}
+
+
+.product-card.active .card-content {
+    opacity: 1;
+}
+
+/* Seznam uvnitř karty */
+.card-content ul {
+    padding: 0;
+    margin: 30px 0 0 0 !important;
+    list-style: none;
+}
+
+.card-content ul li {
+    font-size: 14px;      /* menší, aby se vešlo více textu */
+    line-height: 1.4;
+    margin: 2px 0;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.product-card {
+    height: 200px;
+    overflow: hidden;
+    transition: height 0.3s ease;
+}
+.product-card.expanded {
+    height: fit-content !important; /* nebo konkrétní větší výška */
+}
+
+
+/* Odstranění puntíků pro seznamy uvnitř karty */
+.product-card ul,
+.product-card li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.product-card ul{
+      margin-top: 30px !important;
+}
+
+/* TEXT UVNITŘ KARTY – JEN POLOŽKY, NE CARD-HEADER */
+.product-card ul li {
+    font-size: 18px;       /* změna velikosti textu */
+    color: #ffffff;        /* barva písma */
+    font-family: "Segoe UI", "San Francisco", "Helvetica Neue", Helvetica, Arial, sans-serif;  /* hezčí moderní font */
+    font-weight: 700px;      /* trochu výraznější */
+    text-align: center;    /* zarovnat na střed */
+    margin: -2px 0;         /* lehké rozestupy mezi řádky */
+    
+}
+
+/* Tlačítko */
+.btn {
+    display: inline-block;
+    margin-top: 35px;
+    background: #2f3e46;
+    color: white;
+    padding: 14px 26px;
+    border-radius: 50px;
+    font-size: 16px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: 0.3s ease;
+    text-align: center;
+    font-weight: bold;
+}
+
+.textbutton .textbutton {
+  font-size: 14px;       /* velikost textu */
+  color: #181818;           /* barva textu */
+  line-height: 1.4;      /* mezera mezi řádky, pokud je víc textu */
+  margin-right: 8px;     /* mezera mezi textem a tlačítkem */
+  cursor: default;       /* text není klikací */
+  user-select: none;     /* text se neoznačuje při kliknutí */
+  font-family: 'Inter', sans-serif;
+}
+
+
+
+.btn:hover {
+    background: #caa603;
+    transform: translateY(-3px);
+}
+
+
+
+html {
+  scroll-behavior: smooth;
+}
+
+.product-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    filter: blur(2.3px);
+    z-index: 0;
+    
+    
+}
+
+.product-card > * {
+    position: relative;
+    z-index: 1;
+}
+
+/* header uvnitř karty */
+/* Výchozí styl proužku */
+.card-header {
+    background: linear-gradient(90deg, #7ece5a 0%, #6bbb4f 100%);
+    color: white;
+    padding: 15px 0;
+    margin: -25px -25px 13px -25px;
+    font-size: 1.15rem;
+    font-weight: 700;
+    letter-spacing: 0.4px;
+
+    border-top-left-radius: 17px;
+    border-top-right-radius: 17px;
+
+    box-shadow: inset 0 0 8px rgba(255, 255, 255, 0.4),
+                0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Jednotlivé barvy pro každou kartu */
+.card1 .card-header { background: rgba(172, 169, 0, 0.8); }   /* Kořenová a cibulová - červená/oranžová */
+.card2 .card-header { background: rgba(13, 124, 13, 0.8); }   /* Listová zelenina - zelená */
+.card3 .card-header { background: rgba(255, 3, 3, 0.8); }   /* Plodová zelenina - oranžová */
+.card4 .card-header { background: rgba(83, 121, 8, 0.8); }  /* Křížatá zelenina - olivová */
+.card5 .card-header { background: rgba(218, 165, 32, 0.8); }  /* Brambory - zlatá */
+.card6 .card-header { background: rgba(33, 107, 18, 0.8); }   /* Ovoce - tmavší oranžová */
+
+
+/* seznam uvnitř karty */
+.product-card ul {
+    list-style: none;
+    padding: -2px;
+    margin: 0;
+}
+
+
+/* konkrétní obrázky pro jednotlivé karty */
+.card1::before { background-image: url('images/korenovazelenina'); }
+.card2::before { background-image: url('images/listova.jpg'); }
+.card3::before { background-image: url('images/plodova.jpg'); }
+.card4::before { background-image: url('images/krizata.jpg'); }
+.card5::before { background-image: url('images/brambory.jpg'); }
+.card6::before { background-image: url('images/ovoce.jpg'); }
+
+
+
+
+
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 25px rgba(0,0,0,0.25);
+}
+
+.product-card h4 {
+  color: #000000;
+  margin-bottom: 0.75rem;
+  font-size: 1.2rem;
+  border-bottom: 1px solid rgba(255,255,255,0.2);
+  padding-bottom: 0.25rem;
+  font-weight: bold;
+}
+
+.product-card ul {
+  list-style: disc;
+  padding-left: 1.25rem;
+}
+
+.product-card ul li {
+  margin-bottom: 0.25rem;
+  font-weight: 500;
+}
+.card-info-hint {
+    background: #c93b29;
+    border: 2px solid #af2715;
+    padding: 12px 18px;
+    border-radius: 14px;
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #ffffff;
+    text-align: center;
+    width: fit-content;
+    margin: 0 auto 20px auto;
+
+    box-shadow: 0 4px 14px rgba(0, 80, 0, 0.08),
+                inset 0 0 6px rgba(255, 255, 255, 0.6);
+
+    /* Jemná animace */
+    animation: hintPulse 2.2s ease-in-out infinite;
+}
+
+@keyframes hintPulse {
+    0% { transform: scale(1); opacity: 0.85; }
+    50% { transform: scale(1.03); opacity: 1; }
+    100% { transform: scale(1); opacity: 0.85; }
+}
+.phone-nav {
+    display: flex;
+    flex-direction: column; /* čísla pod sebou */
+    gap: 6px; /* mezera mezi čísly */
+    align-items: flex-start; /* zarovná vlevo, může být center pokud chceš */
+    padding: 10px 0;
+    font-family: "Segoe UI", Helvetica, Arial, sans-serif;
+}
+
+.phone-title {
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: #ffffff;
+    margin-bottom: 4px;
+}
+
+.nav-phone {
+    color: #C0300C;
+    font-weight: 600;
+    text-decoration: none;
+    font-size: 0.8rem;
+    transition: 0.2s ease;
+}
+
+.nav-phone:hover {
+    color: #df5f48;
+    text-decoration: underline;
+}
+
+
+

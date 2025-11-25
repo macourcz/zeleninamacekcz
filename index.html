@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="cs"><script>
+document.addEventListener('DOMContentLoaded', () => {
+  const nav = document.querySelector(".top-nav");
+  const underline = nav.querySelector(".underline");
+  const links = nav.querySelectorAll("a");
+
+  function moveUnderline(link) {
+    const linkRect = link.getBoundingClientRect();
+    const navRect = nav.getBoundingClientRect();
+    underline.style.width = linkRect.width + "px";
+    underline.style.left = (linkRect.left - navRect.left) + "px";
+  }
+
+  const currentPage = window.location.pathname.split("/").pop();
+  links.forEach(link => {
+    if(link.getAttribute("href") === currentPage) {
+      moveUnderline(link);
+    }
+
+    link.addEventListener("mouseenter", () => moveUnderline(link));
+  });
+
+  nav.addEventListener("mouseleave", () => {
+    links.forEach(link => {
+      if(link.getAttribute("href") === currentPage) {
+        moveUnderline(link);
+      }
+    });
+  });
+});
+</script>
+
+<script>
+const hamburger = document.getElementById("hamburger");
+const mobileNav = document.getElementById("mobileNav");
+
+hamburger.addEventListener("click", () => {
+    mobileNav.classList.toggle("active");
+});
+</script>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Daniel Macek s.r.o. — Velkoobchod zeleniny</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const header = document.querySelector('.site-header');
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) {
+      if (!header.classList.contains('sticky')) {
+        header.classList.add('sticky');
+        setTimeout(() => header.classList.add('animate-down'), 20);
+      }
+    } else {
+      if (header.classList.contains('sticky')) {
+        header.classList.remove('animate-down');
+        setTimeout(() => header.classList.remove('sticky'), 200);
+      }
+    }
+  }, { passive: true });
+});
+</script>
+
+<body>
+  <header class="site-header">
+  <div class="container header-inner">
+    <div class="brand">
+      <img src="images/fakturalogo.png" alt="Daniel Macek s.r.o. logo" class="logo">
+    </div>
+    <nav class="top-nav">
+      <a href="index.html" class="active">Domů</a>
+      <a href="produkty.html">Sortiment</a>
+      <a href="kontakt.html">Kontakt & formulář</a>
+      <div class="underline"></div> <!-- animovaný podtrh -->
+    </nav>
+    <div class="phone-nav">
+    <span class="contact-info">Objednávky:</span>
+    <a href="tel:+420731343466" class="nav-phone">+420 731 343 466</a>
+    <a href="tel:+420736649347" class="nav-phone">+420 736 649 347</a>
+    </div>
+  </div>
+</header>
+
+
+  <main>
+    <section id="hero" class="hero">
+      <div class="container hero-inner">
+        <h2>Dodáváme čerstvou zeleninu velkoodběratelům</h2>
+        <div class="divider"></div>
+        <p>Nejlevnější zelenina v Praze a okolí — dodávky každou <span class="highlight">středu</span> a <span class="highlight">neděli</span>, ceny opravdu flexibilní.<p>
+
+        <a href="kontakt.html#cenik" class="btn">Požádat o ceník</a>
+      </div>
+  
+    </section>
+<style>
+    body {
+        margin: 0;
+        background-image: url('images/view-fruits-vegetables.jpg');
+        background-size: 200%;       /* vyplní celou stránku */
+        background-position: center;  /* vycentruje */
+        background-repeat: no-repeat; /* nebude se opakovat */
+    }
+</style>
+    
+
+    <section id="about" class="about-section">
+            <div class="about-circle">
+                <h3 class="about-title">O nás</h3>
+                <p class="about-text">
+      Jsme rodinná firma z Královéhradeckého kraje s dlouholetou praxí v dodávkách čerstvé zeleniny a ovoce. Už od roku 2005 se specializujeme na zásobování Prahy a jejího okolí, kde si naši zákazníci cení především spolehlivosti, férových cen a vysoké kvality našich produktů.
+
+Dbáme na to, aby byla naše zelenina vždy maximálně čerstvá — velká část sortimentu je sklízena ještě tentýž den, kdy ji expedujeme k odběratelům. Díky tomu můžeme garantovat nejen skvělou chuť, ale také výživovou hodnotu, kterou čerstvost přináší.
+
+Naší prioritou je osobní přístup, poctivá práce a dlouhodobá spolupráce se zákazníky, kteří se na nás mohou kdykoli spolehnout.
+    </p>
+  </div>
+</section>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+
+    <section id="where" class="map-section">
+  <h3>Kde nás najdete</h3>
+  <p>Velkotržnice Lipence, Praha — K Radotínu 492, 156 00, Praha 5</p>
+
+  <div class="map-wrapper">
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2565.41598334634!2d14.353814!3d49.979284!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470b953e1e7bc5c1%3A0x6f335d0f396ea364!2sK%20Radot%C3%ADnu%20492%2C%20156%2000%20Praha-Lipence!5e0!3m2!1scs!2scz!4v0000000000000"
+      width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    <div class="map-overlay">
+      <p>Navštivte nás osobně a ochutnejte čerstvou zeleninu!</p>
+    </div>
+  </div>
+</section>
+  </main>
+
+  <footer class="site-footer">
+  <div class="footer-container">
+
+    <div class="footer-col">
+      <h4>Daniel Macek s.r.o.</h4>
+      <p>Kubelíkova 1224/42, Žižkov (Praha 3), 130 00 Praha</p>
+      <p>ičo: 24247758</p>
+    </div>
+
+    <div class="footer-col">
+      <h4>Kontakt</h4>
+      <p>Email: zelenina.macek@seznam.cz</p>
+      <p>Telefon: +420 736 649 347</p>
+    </div>
+
+    <div class="footer-col">
+      <h4>Rychlé odkazy</h4>
+      <a href="index.html">Domů</a><br>
+      <a href="produkty.html">Sortiment</a><br>
+      <a href="kontakt.html">Kontakt & formulář</a>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    © <span id="year"></span> Daniel Macek s.r.o. — Všechna práva vyhrazena.
+  </div>
+</footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

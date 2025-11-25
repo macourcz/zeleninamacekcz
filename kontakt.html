@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="cs"><script>
+document.addEventListener('DOMContentLoaded', () => {
+  const nav = document.querySelector(".top-nav");
+  const underline = nav.querySelector(".underline");
+  const links = nav.querySelectorAll("a");
+
+  function moveUnderline(link) {
+    const linkRect = link.getBoundingClientRect();
+    const navRect = nav.getBoundingClientRect();
+    underline.style.width = linkRect.width + "px";
+    underline.style.left = (linkRect.left - navRect.left) + "px";
+  }
+
+  const currentPage = window.location.pathname.split("/").pop();
+  links.forEach(link => {
+    if(link.getAttribute("href") === currentPage) {
+      moveUnderline(link);
+    }
+
+    link.addEventListener("mouseenter", () => moveUnderline(link));
+  });
+
+  nav.addEventListener("mouseleave", () => {
+    links.forEach(link => {
+      if(link.getAttribute("href") === currentPage) {
+        moveUnderline(link);
+      }
+    });
+  });
+});
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const header = document.querySelector('.site-header');
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) {
+      if (!header.classList.contains('sticky')) {
+        header.classList.add('sticky');
+        setTimeout(() => header.classList.add('animate-down'), 20);
+      }
+    } else {
+      if (header.classList.contains('sticky')) {
+        header.classList.remove('animate-down');
+        setTimeout(() => header.classList.remove('sticky'), 200);
+      }
+    }
+  }, { passive: true });
+});
+</script>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Kontakt — Daniel Macek s.r.o.</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="site-header">
+  <div class="container header-inner">
+    <div class="brand">
+      <img src="images/fakturalogo.png" alt="Daniel Macek s.r.o. logo" class="logo">
+    </div>
+    <nav class="top-nav">
+      <a href="index.html">Domů</a>
+      <a href="produkty.html">Sortiment</a>
+      <a href="kontakt.html" class="active">Kontakt & formulář</a>
+      <div class="underline"></div> <!-- animovaný podtrh -->
+    </nav>
+    <div class="phone-nav">
+    <span class="contact-info">Objednávky:</span>
+    <a href="tel:+420731343466" class="nav-phone">+420 731 343 466</a>
+    <a href="tel:+420736649347" class="nav-phone">+420 736 649 347</a>
+    </div>
+  </div>
+</header>
+
+
+  <main>
+
+    <style>
+    body {
+        margin: 0;
+        background-image: url('images/sliced-vegetables-white-background-with-copy-space.jpg');
+        background-size: 230%;       /* vyplní celou stránku */
+        background-position: center;  /* vycentruje */
+        background-repeat: no-repeat; /* nebude se opakovat */
+    }
+    </style>
+
+    <section class="contact-section container">
+
+      <h2 class="contact-title">KONTAKTUJTE NÁS</h2>
+
+      <div class="contact-card">
+        <h3>Daniel Macek </h3>
+        <h4> Majitel</H4>
+        <p><strong>Telefon:</strong> +420 736 649 347</p>
+        <p><strong>Email:</strong> zelenina.macek@seznam.cz </p>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="contact-card">
+        <h3>Tadeáš Macek</h3>
+        <h4> Správce </h4>
+        <p><strong>Telefon:</strong> +420 731 343 466</p>
+        <p><strong>Email:</strong> zelenina.macek@seznam.cz</p>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="contact-card">
+        <h3>Radka Macková</h3>
+        <h4>Účetní</h4>
+        <p><strong>Telefon:</strong> +420 731 518 146</p>
+        <p><strong>Email:</strong> zelenina.macek@seznam.cz</p>
+      </div>
+
+      <div class="divider"></div>
+      <section id="cenik">
+      <section class="form-section">
+  <h2>Požádat o týdenní ceník</h2>
+  <p class="form-desc">Vyplňte formulář a obratem vám zašleme aktuální velkoobchodní ceník zeleniny na tento týden.</p>
+
+  <form class="nice-form" action="#" method="post">
+
+    <div class="form-group">
+      <label>Jméno a příjmení</label>
+      <input type="text" required placeholder="Např. Jan Novák">
+    </div>
+
+    <div class="form-group">
+      <label>Název firmy</label>
+      <input type="text" required placeholder="Např. Zelenina Novák s.r.o.">
+    </div>
+
+    <div class="form-group">
+      <label>E-mail</label>
+      <input type="email" required placeholder="vas@email.cz">
+    </div>
+
+    <div class="form-group">
+      <label>Telefon</label>
+      <input type="text" required placeholder="+420 123 456 789">
+    </div>
+
+    <div class="form-group">
+      <label>Zpráva (nepovinné)</label>
+      <textarea rows="4" placeholder="Můžete upřesnit poptávku…"></textarea>
+    </div>
+
+  <label class="gdpr">
+  <input type="checkbox">
+  Souhlasím se zpracováním osobních údajů
+</label>
+
+    <button type="submit" class="btn-send">Odeslat žádost</button>
+  </form>
+</section>
+      </section>
+
+
+    </section>
+  </main>
+
+  <footer class="site-footer">
+  <div class="footer-container">
+
+    <div class="footer-col">
+      <h4>Daniel Macek s.r.o.</h4>
+      <p>Kubelíkova 1224/42, Žižkov (Praha 3), 130 00 Praha</p>
+      <p>ičo: 24247758</p>
+    </div>
+
+    <div class="footer-col">
+      <h4>Kontakt</h4>
+      <p>Email: zelenina.macek@seznam.cz</p>
+      <p>Telefon: +420 736 649 347</p>
+    </div>
+
+    <div class="footer-col">
+      <h4>Rychlé odkazy</h4>
+      <a href="index.html">Domů</a><br>
+      <a href="produkty.html">Sortiment</a><br>
+      <a href="kontakt.html">Kontakt & formulář</a>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    © <span id="year"></span> Daniel Macek s.r.o. — Všechna práva vyhrazena.
+  </div>
+</footer>
+
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
