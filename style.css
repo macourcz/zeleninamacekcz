@@ -251,7 +251,7 @@ body {
 }
 
 .site-header.sticky .header-inner {
-    padding: 0.8rem 1.6rem;
+    padding: 0.4rem 1.6rem;
 }
 
 .site-header.sticky .brand img.logo {
@@ -1316,3 +1316,4 @@ html {
     flex: 1;
   }
 }
+
