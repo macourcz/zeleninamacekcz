@@ -183,6 +183,51 @@ Naší prioritou je osobní přístup, poctivá práce a dlouhodobá spolupráce
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
+  <div id="cookie-bar" class="cookie-bar">
+  <div class="cookie-bar-inner">
+
+    <div class="cookie-text">
+      <h3>Souhlas s cookies</h3>
+      <p>
+        Používáme soubory cookies, abychom zajistili správné fungování našeho webu, přizpůsobili obsah Vašim preferencím a zlepšili naše služby. Vyberte prosím, zda nám je umožníte používat.
+      </p>
+    </div>
+
+    <div class="cookie-actions">
+      <button id="cookie-decline" class="cookie-btn decline">Odmítnout</button>
+      <button id="cookie-accept" class="cookie-btn accept">Přijmout</button>
+    </div>
+
+  </div>
+</div>
+  <script>
+document.addEventListener("DOMContentLoaded", () => {
+
+  const bar = document.getElementById("cookie-bar");
+  const accept = document.getElementById("cookie-accept");
+  const decline = document.getElementById("cookie-decline");
+
+  // Jestli už rozhodl, bar schovej
+  if (localStorage.getItem("cookieDecision")) {
+    bar.style.display = "none";
+    return;
+  }
+
+  // Přijmout
+  accept.addEventListener("click", () => {
+    localStorage.setItem("cookieDecision", "accepted");
+    bar.style.display = "none";
+  });
+
+  // Odmítnout
+  decline.addEventListener("click", () => {
+    localStorage.setItem("cookieDecision", "declined");
+    bar.style.display = "none";
+  });
+
+});
+</script>
 </body>
 </html>
+
 
