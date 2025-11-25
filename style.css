@@ -1176,7 +1176,7 @@ html {
     color: #df5f48;
     text-decoration: underline;
 }
-/* Celý cookie bar dole /
+
 .cookie-bar {
   position: fixed;
   left: 0;
@@ -1273,6 +1273,7 @@ html {
     flex: 1;
   }
 }
+
 
 
 
