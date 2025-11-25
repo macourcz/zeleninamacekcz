@@ -258,7 +258,7 @@ body {
     height: 70px;
 }
 
-//* ------------------------------ */
+/* ------------------------------ */
 /* DESKTOP (default)              */
 /* ------------------------------ */
 body {
@@ -320,25 +320,7 @@ body {
         background-position: center;  /* vycentruje */
         background-repeat: no-repeat; /* nebude se opakovat */
     }
-    body {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    background-size: cover;
-    background-position: center;
-  }
-
-  .site-footer {
-    margin-top: auto;               /* footer se přilepí dolů */
-    position: relative;
-    z-index: 5;                     /* překryje pozadí */
-    background: #fffffffa;          /* mírně krycí pozadí (možno zesílit) */
-    backdrop-filter: blur(5px);     /* volitelné – vypadá to luxusně */
-  }
-
-  .wave-divider {
-    display: none;                  /* u tabletů raději vypnout vlnku, kazí layout */
-  }
+    
   }
 
 
@@ -455,25 +437,6 @@ body {
         
         
     }
-    body {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    background-size: cover;
-    background-position: center;
-  }
-
-  .site-footer {
-    margin-top: auto;               /* footer se přilepí dolů */
-    position: relative;
-    z-index: 5;                     /* překryje pozadí */
-    background: #fffffffa;          /* mírně krycí pozadí (možno zesílit) */
-    backdrop-filter: blur(5px);     /* volitelné – vypadá to luxusně */
-  }
-
-  .wave-divider {
-    display: none;                  /* u tabletů raději vypnout vlnku, kazí layout */
-  }
 
 }
 
@@ -1177,6 +1140,86 @@ html {
     text-decoration: underline;
 }
 
+/* Rozmazané pozadí */
+.cookie-overlay {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  backdrop-filter: blur(10px);
+  background: rgba(0, 0, 0, 0.55);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 99999;
+  padding: 20px;
+}
+
+/* Modal */
+.cookie-modal {
+  background: #ffffff;
+  padding: 35px;
+  width: 95%;
+  max-width: 600px;
+  border-radius: 22px;
+  text-align: left;
+  box-shadow: 0 15px 50px rgba(0,0,0,0.25);
+  animation: fadeIn 0.35s ease-out;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+/* Header */
+.cookie-header h2 {
+  margin: 0;
+  font-size: 28px;
+  font-weight: 700;
+  color: #111;
+}
+
+.cookie-header p {
+  font-size: 17px;
+  color: #555;
+  margin-top: 5px;
+  line-height: 1.5;
+}
+
+/* Options */
+.cookie-options {
+  background: #f8f8f8;
+  padding: 18px 20px;
+  border-radius: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.cookie-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 16px;
+  color: #222;
+}
+
+/* Tagy */
+.tag {
+  padding: 4px 10px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.essential {
+  background: #e3e3e3;
+}
+
+.optional {
+  background: #e8f0ff;
+  color: #1c5dff;
+}
+
+/* Celý cookie bar dole */
 .cookie-bar {
   position: fixed;
   left: 0;
@@ -1190,7 +1233,7 @@ html {
   animation: slideUp 0.4s ease-out;
 }
 
-/ Obsah /
+/* Obsah */
 .cookie-bar-inner {
   max-width: 1200px;
   margin: auto;
@@ -1201,7 +1244,7 @@ html {
   gap: 30px;
 }
 
-/ Text /
+/* Text */
 .cookie-text h3 {
   margin: 0;
   font-size: 20px;
@@ -1216,7 +1259,7 @@ html {
   line-height: 1.4;
 }
 
-/ Tlačítka /
+/* Tlačítka */
 .cookie-actions {
   display: flex;
   gap: 15px;
@@ -1232,7 +1275,7 @@ html {
   transition: 0.2s;
 }
 
-/ Odmítnout /
+/* Odmítnout */
 .cookie-btn.decline {
   background: #eaeaea;
   color: #333;
@@ -1241,7 +1284,7 @@ html {
   background: #dcdcdc;
 }
 
-/ Přijmout /
+/* Přijmout */
 .cookie-btn.accept {
   background: #1b7d2b;
   color: white;
@@ -1250,13 +1293,13 @@ html {
   background: #146321;
 }
 
-/ Animace vysunutí /
+/* Animace vysunutí */
 @keyframes slideUp {
   from { transform: translateY(100%); opacity: 0; }
   to { transform: translateY(0); opacity: 1; }
 }
 
-/ RESPONSIVE na telefony */
+/* RESPONSIVE na telefony */
 @media (max-width: 700px) {
   .cookie-bar-inner {
     flex-direction: column;
@@ -1273,7 +1316,3 @@ html {
     flex: 1;
   }
 }
-
-
-
-
