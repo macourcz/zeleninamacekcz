@@ -1176,6 +1176,103 @@ html {
     color: #df5f48;
     text-decoration: underline;
 }
+/* Celý cookie bar dole /
+.cookie-bar {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background: #ffffff;
+  border-top: 1px solid #e0e0e0;
+  box-shadow: 0 -4px 20px rgba(0,0,0,0.08);
+  z-index: 99999;
+  padding: 20px 0;
+  animation: slideUp 0.4s ease-out;
+}
+
+/ Obsah /
+.cookie-bar-inner {
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 25px;
+  gap: 30px;
+}
+
+/ Text /
+.cookie-text h3 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+  color: #111;
+}
+
+.cookie-text p {
+  margin-top: 5px;
+  font-size: 15px;
+  color: #444;
+  line-height: 1.4;
+}
+
+/ Tlačítka /
+.cookie-actions {
+  display: flex;
+  gap: 15px;
+}
+
+.cookie-btn {
+  padding: 11px 22px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 600;
+  transition: 0.2s;
+}
+
+/ Odmítnout /
+.cookie-btn.decline {
+  background: #eaeaea;
+  color: #333;
+}
+.cookie-btn.decline:hover {
+  background: #dcdcdc;
+}
+
+/ Přijmout /
+.cookie-btn.accept {
+  background: #1b7d2b;
+  color: white;
+}
+.cookie-btn.accept:hover {
+  background: #146321;
+}
+
+/ Animace vysunutí /
+@keyframes slideUp {
+  from { transform: translateY(100%); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/ RESPONSIVE na telefony */
+@media (max-width: 700px) {
+  .cookie-bar-inner {
+    flex-direction: column;
+    text-align: center;
+    gap: 20px;
+  }
+
+  .cookie-actions {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .cookie-btn {
+    flex: 1;
+  }
+}
 
 
 
