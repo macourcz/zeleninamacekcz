@@ -123,12 +123,42 @@ document.addEventListener('DOMContentLoaded', () => {
   <h2>Požádat o týdenní ceník</h2>
   <p class="form-desc">Vyplňte formulář a obratem vám zašleme aktuální velkoobchodní ceník zeleniny na tento týden.</p>
 
-  <form action="https://formspree.io/f/xvgndrwy" method="POST">
-  <input type="text" name="name" placeholder="Jméno" required>
-  <input type="email" name="email" placeholder="Email" required>
-  <textarea name="message" placeholder="Zpráva" required></textarea>
-  <button type="submit">Odeslat</button>
+  <form class="nice-form" action="https://formspree.io/f/xvgndrwy" method="POST">
+
+  <div class="form-group">
+    <label>Jméno a příjmení</label>
+    <input type="text" name="name" required placeholder="Např. Jan Novák">
+  </div>
+
+  <div class="form-group">
+    <label>Název firmy</label>
+    <input type="text" name="company" required placeholder="Např. Zelenina Novák s.r.o.">
+  </div>
+
+  <div class="form-group">
+    <label>E-mail</label>
+    <input type="email" name="email" required placeholder="vas@email.cz">
+  </div>
+
+  <div class="form-group">
+    <label>Telefon</label>
+    <input type="text" name="phone" required placeholder="+420 123 456 789">
+  </div>
+
+  <div class="form-group">
+    <label>Zpráva (nepovinné)</label>
+    <textarea name="message" rows="4" placeholder="Můžete upřesnit poptávku…"></textarea>
+  </div>
+
+  <label class="gdpr">
+    <input type="checkbox" name="gdpr" value="Souhlasím" required>
+    Souhlasím se zpracováním osobních údajů
+  </label>
+
+  <button type="submit" class="btn-send">Odeslat žádost</button>
+
 </form>
+
 
 </section>
       </section>
@@ -172,4 +202,5 @@ document.addEventListener('DOMContentLoaded', () => {
   </script>
 </body>
 </html>
+
 
